@@ -103,7 +103,7 @@ def add_to_cart(melon_id):
 
     if melon_id not in cart:
         cart[melon_id] = 0
-    
+   
     # - increment the count for that melon id by 1
     cart[melon_id] += 1
 
