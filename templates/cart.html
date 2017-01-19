@@ -1,15 +1,5 @@
-#get cart dict from session
-session["cart"] 
-for each in cart dict:
-    melon = melons.get_by_id(melon_id)
-cart list =[]
-add qty and total price to cart list
 
-pass the list and rder ttal to jinja template    
 
-in jinja loop over the list 
-    display qty, price, total
-    compute total cost
 
 {% extends 'base.html' %}
 
@@ -18,20 +8,25 @@ in jinja loop over the list
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Melon Name</th>
+            <th>Type</th>
             <th>Quantity</th>
             <th>Price</th>
             <th>Total</th>
         </tr>
         </thead>
         <tbody>
+        {% for melon_id %}
+        { % for melon_id in melons %}
         <tr>
-            <td>Ancient Watermelon</td>
-            <td>5</td>
+           
+
+            <td>{{ melon_id }} </td>
+            <td>{{ quantity }}</td>
             <td>$3.00</td>
             <td>$15.00</td>
+            {% endif %}
         </tr>
-        <tr>
+       <!--  <tr>
             <td>Charleston Gray</td>
             <td>2</td>
             <td>$2.00</td>
@@ -48,7 +43,7 @@ in jinja loop over the list
             <td>2</td>
             <td>$3.00</td>
             <td>$6.00</td>
-        </tr>
+        </tr> -->
         </tbody>
     </table>
 

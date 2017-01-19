@@ -76,9 +76,18 @@ def show_shopping_cart():
     # - pass the total order cost and the list of Melon objects to the template
     #
     # Make sure your function can also handle the case wherein no cart has
-    # been added to the session
+    # # been added to the session
+    # price = melons.get_by_id(price)
 
-    return render_template("cart.html")
+    for melon, quantity in session['cart'].items():
+        print melon 
+        print quantity
+
+    return render_template("cart.html",
+                    melon_id=melon,
+                    quantity=quantity)
+
+    # return render_template("cart.html")
 
 
 @app.route("/add_to_cart/<melon_id>")
@@ -110,8 +119,7 @@ def add_to_cart(melon_id):
     # - flash a success message
     flash("Success! Great shopping!")
     # - redirect the user to the cart page
-
-    print session
+    # print session['cart']
 
     return redirect("/cart")
 
